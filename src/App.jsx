@@ -20,17 +20,19 @@ export function App() {
       const threeWords = fact.split(' ',4).join(' ')
       console.log(threeWords)
 
-      fetch(`https://cataas.com/cat/says/${threeWords}?size=50&color=red&json=true`)
-      .then(res => res.json())
-      .then(response => {
-        const { url } = response
-        setImageUrl(`https://cataas.com${url}`)
+      fetch(`https://cataas.com/cat?json=true`)
+      .then( res => res.json())
+      .then(res => {
+        const {url  } = res
+        console.log(res)
+        setImageUrl(`https://cataas.com/cat`)
+        console.log(url)
       })
 
       
 
     })
-  }, [])
+}, [])
   return (
     <>
      
